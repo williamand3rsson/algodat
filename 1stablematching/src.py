@@ -1,7 +1,8 @@
 from company import Company
 from student import Student
+from util import Util
 
-with open('1stablematching/data/secret/2testmid.in', 'r') as file:
+with open('1stablematching/data/secret/3testlarge.in', 'r') as file:
     # Read the file line by line
     students = []
     companies = []
@@ -10,6 +11,14 @@ with open('1stablematching/data/secret/2testmid.in', 'r') as file:
     def strtoint(strList):
         intNbrs = list(map(int, strList))
         return intNbrs
+    
+    def containsID(id):
+        idExists = False
+        for comp in companies:
+            if comp.id == id:
+                idExists = True
+        return idExists
+
 
     for line in file:
         if counter == 0:
@@ -18,14 +27,12 @@ with open('1stablematching/data/secret/2testmid.in', 'r') as file:
             nbrs = line.split()
             nbrs = strtoint(nbrs)
             nbr1 = nbrs.pop(0)
-            if nbrs[0] in companies:
+            if containsID(nbr1):
                 students.append(Student(nbr1, nbrs))
             else:
                 companies.append(Company(nbr1, nbrs))
 
-
-print(str(companies))
-print(str(students))
+    Util.findMatches(companies, students)
 
 
 
