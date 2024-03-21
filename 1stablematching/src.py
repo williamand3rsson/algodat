@@ -43,7 +43,7 @@ while len(bigString) != 0:
         splitLine = Util.sortPref(splitLine)
         companies.append(Company(splitLine1, splitLine))
 
-#sortCompanies = sorted(companies, key=lambda x: x.id)
-#print(sortCompanies[0])
+sortCompanies = sorted(companies, key=lambda x: x.id)
+##print(sortCompanies[0])
 
-Util.findMatches(companies, students)
+Util.findMatches(sortCompanies, students)

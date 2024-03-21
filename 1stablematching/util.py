@@ -23,7 +23,7 @@ class Util:
             elif (favCompany.prefList[stud.id - 1] > favCompany.prefList[curStudent.id - 1]):
                 tempStud = stud
                 matchMap[favCompany] = curStudent
-                tempStud.prefList.pop(0)
+                curStudent.prefList.pop(0)
                 studentList.append(tempStud)
             else:
                 curStudent.prefList.pop(0)
