@@ -22,8 +22,8 @@ class Util:
                 matchMap[favCompany] = curStudent
             elif (favCompany.prefList[stud.id - 1] > favCompany.prefList[curStudent.id - 1]):
                 tempStud = stud
-                matchMap[favCompany] = curStudent
                 curStudent.prefList.pop(0)
+                matchMap[favCompany] = curStudent
                 studentList.append(tempStud)
             else:
                 curStudent.prefList.pop(0)
@@ -32,9 +32,6 @@ class Util:
         ##sorts the matchMap after id of the key in acsending order
         sorted_matchMap = {k: matchMap[k] for k in sorted(matchMap.keys(), key=lambda x: x.id)}
         
-        for comp, stud in matchMap.items():
+        for comp, stud in sorted_matchMap.items():
             ##print(f"{obj.id} : {obj1.id}")
             print(f"{stud.id}")
-
-
-
