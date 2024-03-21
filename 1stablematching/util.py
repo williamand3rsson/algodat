@@ -21,10 +21,13 @@ class Util:
             else:
                 curStudent.prefList.pop(0)
                 studentList.append(curStudent)
+
+        ##sorts the matchMap after id of the key in acsending order
+        sorted_matchMap = {k: matchMap[k] for k in sorted(matchMap.keys(), key=lambda x: x.id)}
         
-        for obj, obj1 in matchMap.items():
+        for key, value in sorted_matchMap.items():
             ##print(f"{obj.id} : {obj1.id}")
-            print(f"{obj.id}")
+            print(f"{value.id}")
 
 
 
