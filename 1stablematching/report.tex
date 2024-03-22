@@ -7,17 +7,24 @@
 \pagestyle{empty}
 
 \title{Stable Matching Report}
-\author{Author 1 and Author 2}
+\author{Totti Åkerström and William Andersson}
 
 \begin{document}
   \maketitle
 
   \section{Results}
 
-  \todo[inline]{Briefly comment the results, did the script say all your solutions were correct? Approximately how long time does it take for the program to run on the largest input? What takes the majority of the time?}
+  \todo[inline]{Briefly comment the results, did the script say all your solutions were correct? Approximately how long time does it take for the program to run on the largest input? What takes the majority of the time?
+  Yes,the script said everything was correct. It takes approximately 400 ns to run the largest input. To parse the input takes almost twice as much time as the algorithm itself
+  }
 
   \section{Implementation details}
 
-  \todo[inline]{How did you implement the solution? Which data structures were used? Which modifications to these data structures were used? What is the overall running time? Why?}
+  \todo[inline]{How did you implement the solution? Which data structures were used? Which modifications to these data structures were used? What is the overall running time? Why?
+  4 classes: student, company, stableMatching, main, we used mostly list and dict (key-value). 
+  The modifications we did was mostly looping though index to find specific object and sorting. 
+  The overall time depended on partly the algortim but also the parsering, the time for the whole program was about 3 times the time for the algortim. 
+  One surpise was that the parsing of input took almost two times the time of the algorithm itself, probably due to the amount of data combinded with
+  all objects that were created to abstract the code, and make it easier to work with}
 
 \end{document}

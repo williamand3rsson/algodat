@@ -1,9 +1,10 @@
 import sys
+import time
+
 from company import Company
 from student import Student
-from util import Util
+from stableMatching import StableMatching
 
-# Read the file line by line
 students = []
 companies = []
 counter = 0
@@ -21,6 +22,9 @@ def containsID(id):
             idExists = True
     return idExists
 
+"""
+Read the file line by line and parses the input 
+"""
 for line in sys.stdin:
     if counter == 0:
         nbrElem = int(line) + 1
@@ -38,10 +42,21 @@ while len(bigString) != 0:
     if containsID(splitLine1):
         students.append(Student(splitLine1, splitLine))
     else:
-        splitLine = Util.sortPref(splitLine)
+        splitLine = StableMatching.sortPref(splitLine)
         companies.append(Company(splitLine1, splitLine))
 
 sortCompanies = sorted(companies, key=lambda x: x.id)
 
-
-Util.findMatches(sortCompanies, students)
+#measures the time of the algorithm
+start_time = time.time()
+StableMatching.algoritm(sortCompanies, students)
+end_time = time.time()
+execution_time = (end_time - start_time)*1000000
+    
+"""
+print("Total time was: ", execution_time, "ns")
+0testsmall: 20-33 ns
+1testsmallmessy: 20-31 ns
+2testmid: 29-61 ns
+3testlarge: 296-523 ns
+"""
