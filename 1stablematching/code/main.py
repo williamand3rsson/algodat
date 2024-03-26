@@ -51,12 +51,14 @@ sortCompanies = sorted(companies, key=lambda x: x.id)
 start_time = time.time()
 StableMatching.algoritm(sortCompanies, students)
 end_time = time.time()
-execution_time = (end_time - start_time)*1000000
+execution_time = (end_time - start_time) 
+print("Total time was: ", execution_time, "s")
     
 """
-print("Total time was: ", execution_time, "ns")
 0testsmall: 20-33 ns
 1testsmallmessy: 20-31 ns
 2testmid: 29-61 ns
 3testlarge: 296-523 ns
+4testhuge: 0.83 s
+5testhugemessy: 0.83 s
 """
