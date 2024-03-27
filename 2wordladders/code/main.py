@@ -19,7 +19,7 @@ for line in sys.stdin:
     elif counter <= (words):
         wordLib.append(splittedLine[0])
         counter += 1
-        if counter == words:
+        if counter == words + 1:
             for word in wordLib:
                 nodeList.append(Node(word, wordLib))
     else:
