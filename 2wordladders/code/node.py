@@ -11,7 +11,7 @@ class Node:
             temp = nb
             for c in fourLetterWord:
                 nb = nb.replace(c, "", 1)
-            if len(nb) == 1:
+            if (len(nb) == 1) and (nb != self.name):
                 nbList.append(temp)
         #print(nbList)
         return nbList
