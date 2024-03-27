@@ -3,6 +3,7 @@ class Node:
     def __init__(self, name, wordLib):
         self.name = name
         self.neighbourList = self.findNeighbour(wordLib)
+        self.visited = 0
     
     def findNeighbour(self, wordLib):
         nbList = []

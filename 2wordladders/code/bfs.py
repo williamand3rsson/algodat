@@ -6,8 +6,8 @@ class BFS:
         currentCount = 1
         allNeighbour = [start]
         currentNode = Node(start, wordLib)
-        visited = []
         while counter <= 5000:
+            currentNode.visited = 1
             counter += 1
             for neighbour in currentNode.neighbourList:
                 allNeighbour.append(neighbour)
