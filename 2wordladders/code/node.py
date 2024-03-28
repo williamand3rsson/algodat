@@ -15,5 +15,8 @@ class Node:
                 nb = nb.replace(c, "", 1)
             if len(nb) == 1:
                 nbList.append(temp)
-        #print(nbList)
+        nbList.remove(self.name)
         return nbList
+    
+    def __str__(self):
+        return f"{self.name}"
