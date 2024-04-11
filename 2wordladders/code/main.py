@@ -1,4 +1,5 @@
 import sys
+import time
 
 from node import Node 
 from bfs import BFS
@@ -15,9 +16,10 @@ counter = 0
 words = 0
 queries = 0
 wordLib = []
-nodeList = []
-queriesLib = {}
+nodeList = {}
+queriesLib = []
 
+start = time.time()
 for line in sys.stdin:
     splittedLine = line.split()
     if counter == 0:
@@ -29,9 +31,6 @@ for line in sys.stdin:
         counter += 1
         if counter == words + 1:
             for word in wordLib:
-                nodeList.append(Node(word, wordLib))
+                nodeList[word] = Node(word, wordLib)
     else:
         BFS.algorithm(Node(splittedLine[0], wordLib), Node(splittedLine[1], wordLib), nodeList, wordLib)
-
-
-

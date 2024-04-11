@@ -1,4 +1,5 @@
 from node import Node
+from collections import deque
 
 class BFS:        
 
@@ -6,7 +7,7 @@ class BFS:
         qList = [(start, 1)]
         currentNode = None
 
-        for n in nodeList:
+        for n in nodeList.values():
             n.visited = 0
         start.visited = 1
 
@@ -17,11 +18,7 @@ class BFS:
         while len(qList) != 0:
             currentNode, distance = qList.pop(0)
             for nb in currentNode.neighbourList:
-                "DENNA SKA BORT"
-                for node in nodeList:
-                    if nb == node.name:
-                        nb = node
-                "DENNA SKA BORT"
+                nb = nodeList[nb]
                 if nb.visited != 1:
                     nb.visited = 1
                     qList.append((nb, distance + 1))
@@ -30,3 +27,6 @@ class BFS:
                         print(distance)
                         return
         print("Impossible")
+
+# 5large1 - 38s
+# 6large2 - 22s    
