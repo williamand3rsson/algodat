@@ -2,7 +2,7 @@ class Node:
 
     def __init__(self, name, wordLib):
         self.name = name
-        self.neighbourList = self.findNeighbour(wordLib)
+        self.neighbourList = [] #self.findNeighbour(wordLib)
         self.visited = 0
         self.pred = None
     
@@ -16,7 +16,8 @@ class Node:
             if len(nb) == 1:
                 nbList.append(temp)
         nbList.remove(self.name)
-        return nbList
+        #return nbList
+        self.neighbourList = nbList
     
     def __str__(self):
         return f"{self.name}"
