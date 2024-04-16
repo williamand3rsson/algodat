@@ -6,6 +6,7 @@ class BFS:
     def algorithm(start, end, nodeList, wordLib):
         qList = [(start, 1)]
         currentNode = None
+        hej = "hej"
 
         for n in nodeList.values():
             n.visited = 0
