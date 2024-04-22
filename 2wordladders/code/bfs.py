@@ -25,7 +25,7 @@ class BFS:
                 if nb.visited != 1:
                     nb.visited = 1
                     qList.append((nb, distance + 1))
-                    #nb.pred = currentNode
+                    nb.pred = currentNode
                     if(nb.name == end.name):
                         print(distance)
                         return

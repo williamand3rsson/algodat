@@ -7,7 +7,6 @@ class Node:
     def addEdge(self, newEdge):
         self.edges.append(newEdge)
 
-
-    
-        
+    def __str__(self):
+        return f"{self.name}"
     
