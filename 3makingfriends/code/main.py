@@ -26,7 +26,7 @@ for line in sys.stdin:
             nodeDic[n] = node 
         counter += 1
     else : 
-        nodeDic[int(nbrs[0])].addEdge((int(nbrs[1]), int(nbrs[2])))
+        nodeDic[int(nbrs[0])].addEdge(int(nbrs[2]), int(nbrs[1]))
         
 graph = {}
 for key, value in nodeDic.items():
