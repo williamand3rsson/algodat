@@ -3,19 +3,20 @@ from queue import PriorityQueue
 class Jarnik:
 
     def jarnik(graf, root, nodeDic):
-        T = None
-        nodeDic.pop(root) 
+        T = 0
         Q = nodeDic
         currentNode = root
         consider = PriorityQueue()
         while (len(Q) != 0):
-            Notfound = true
-            while NotFound:
-                tuplar = currentNode.edges.get()
-                if(tuplar[0] in Q):
-                    NotFound = false
-            for (nb, prio) in currentNode.edges:
-                consider.put(prio, (nb, prio))
-            Q.pop(v)
-            T = T + tuplar[1]
-            currentNode = v
+            #Notfound = True
+            # for v in consider:
+            #     if(v in Q):
+            #         rv = v
+            #         NotFound = False
+            for v in currentNode.edges:
+                if v[0] in Q:
+                    consider.put(v[1], (v[0], v[1]))
+            Q.pop(v[0])
+            T += + v[1]
+            currentNode = nodeDic[v[0]]
+        return T

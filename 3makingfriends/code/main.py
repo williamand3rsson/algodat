@@ -1,6 +1,7 @@
 import sys
 import math
 from node import Node
+from jarnik import Jarnik
 #weightedGraph = []
 counter = 0
 
@@ -31,8 +32,8 @@ for line in sys.stdin:
 graph = {}
 for key, value in nodeDic.items():
     graph[value] = value.edges
-
-print(graph)
+Jarnik.jarnik(graph, nodeDic.pop(1), nodeDic)
+#print(graph)
 #print(graf)
 #print(node)
     

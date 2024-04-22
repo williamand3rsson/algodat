@@ -4,10 +4,10 @@ class Node:
 
     def __init__(self, name):
         self.name = name
-        self.edges = PriorityQueue()
+        self.edges = []
 
     def addEdge(self, prio, nb):
-        self.edges.put(prio, (nb, prio))
+        self.edges.append((nb, prio))
 
     def __str__(self):
         return f"{self.name}"
