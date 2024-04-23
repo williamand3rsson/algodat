@@ -4,19 +4,20 @@ class Jarnik:
 
     def jarnik(graf, root, nodeDic):
         T = 0
-        Q = nodeDic
+        Q = nodeDic.copy()
+        Q.pop(1) 
         currentNode = root
         consider = PriorityQueue()
-        while (len(Q) != 0):
-            #Notfound = True
-            # for v in consider:
-            #     if(v in Q):
-            #         rv = v
-            #         NotFound = False
-            for v in currentNode.edges:
+        while (len(Q) != 1):
+            for v in currentNode.edges:  
                 if v[0] in Q:
-                    consider.put(v[1], (v[0], v[1]))
-            Q.pop(v[0])
-            T += + v[1]
-            currentNode = nodeDic[v[0]]
+                    consider.put((v[1], (v[0], v[1])))
+            b = True
+            while b:
+                priority, (target, prio2) = consider.get()
+                if target in Q:
+                    currentNode = nodeDic.get(target)
+                    Q.pop(target)
+                    T += priority
+                    b = False
         return T

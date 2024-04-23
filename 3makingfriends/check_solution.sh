@@ -12,7 +12,7 @@ for f in data/**/*.in; do
     ans=$pre.ans
     $* < $f > $out
     DIFF=$(diff -w $ans $out)
-    if [ "$DIFF" == "" ]
+    if [ "$DIFF" = "" ]
     then 
         echo Correct!
     else

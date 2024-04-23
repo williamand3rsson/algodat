@@ -10,5 +10,5 @@ class Node:
         self.edges.append((nb, prio))
 
     def __str__(self):
-        return f"{self.name}"
+        return "jag är " + str(self.name)
     
