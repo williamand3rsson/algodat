@@ -7,6 +7,7 @@ class BFS:
         predList = []
         qList = deque([(start, 1)])
         currentNode = None
+        
 
         for n in nodeList.values():
             n.visited = 0
