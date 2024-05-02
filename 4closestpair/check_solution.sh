@@ -12,7 +12,7 @@ for f in data/sample/*.in data/more/*.in data/secret/*.in; do
     ans=$pre.ans
     $* < $f > $out
     DIFF=$(diff -w $ans $out)
-    if [ "$DIFF" == "" ]
+    if [ "$DIFF" = "" ]
     then 
         echo Correct!
     else

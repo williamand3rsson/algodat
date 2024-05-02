@@ -13,5 +13,10 @@ for line in sys.stdin:
         nbrs = line.split()
         points.append(Node(int(nbrs[0]), int(nbrs[1])))
         counter += 1
-        
-Util.closestPoint(points)
+
+Px = points[:]
+Py = points[:]
+Px = sorted(points, key=lambda node: node.x)
+Py = sorted(points, key=lambda node: node.y)
+util = Util()
+print(format(Util.closest(Px, Py, len(Px)), ".6f"))
