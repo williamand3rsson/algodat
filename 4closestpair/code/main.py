@@ -11,10 +11,7 @@ for line in sys.stdin:
         counter += 1
     else : 
         nbrs = line.split()
-        points.append(Node(counter, int(nbrs[0]), int(nbrs[1])))
+        points.append(Node(int(nbrs[0]), int(nbrs[1])))
         counter += 1
-# for point in points:
-#     print(point.name, point.x, point.y)
+        
 Util.closestPoint(points)
-
-

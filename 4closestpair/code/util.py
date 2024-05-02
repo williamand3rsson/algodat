@@ -1,7 +1,11 @@
+import copy
+
 class Util:
 
     def closest(Px, Py, n):
         mid = n/2
+        if(n==2): return Px[0].distanceTo(Py[1])
+        if(n==3): 
         Lx = Px[:mid]
         Rx = Px[mid:]
         Ly = Py[:mid]
@@ -11,13 +15,10 @@ class Util:
 
 
     def closestPoint(points):
-        Px = []
-        Py = []
-        for point in points:
-            Px.append(point.x)
-            Py.append(point.y)
-        Px.sort()
-        Py.sort()
+        Px = points[:]
+        Py = points[:]
+        Px.sort(key=points.x)
+        Py.sort(key=points.y)
         print(Px, Py)
         closest(Px, Py, len(points))
 
