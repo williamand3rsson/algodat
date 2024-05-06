@@ -22,7 +22,8 @@ for line in sys.stdin:
     elif counter == len(letters) + 1:
         counter += 1
     else:
-        Dp.dp(line[0], line[1])
+        print(Dp.dprec(line[0], line[1], letters, matrix))
+       
         
 
 
