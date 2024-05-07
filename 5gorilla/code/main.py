@@ -17,7 +17,7 @@ for line in sys.stdin:
     elif counter <= len(letters):
         matrix.append(lines)
         counter += 1
-    elif counter == len(letters):
+    elif counter == len(letters) + 1:
         for i in range(len(letters)):
             for j in range(len(letters)):
                 dic[(letters[i], letters[j])] = matrix[i][j]
@@ -25,8 +25,7 @@ for line in sys.stdin:
     elif counter == len(letters) + 1:
         counter += 1
     else:
-        result = Dp.dprec(lines[0], lines[1], letters, matrix, memo)
-        #print(dic[("A", "B")])
+        result = Dp.dprec(lines[0], lines[1], letters, dic, memo)
         #result = Dp1.align(lines[0], lines[1], letters, matrix)
         print(result[0], result[1])
 
