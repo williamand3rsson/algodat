@@ -1,10 +1,13 @@
 import sys
 from dp import Dp
+from dp1 import Dp1
 
 counter = 0
 letters = []
 matrix = []
 dic = {}
+memo = {}
+sys.setrecursionlimit(10000) #kommer frya min dator men men hihi
 for line in sys.stdin:
     lines = line.split()
     if counter == 0:
@@ -22,7 +25,11 @@ for line in sys.stdin:
     elif counter == len(letters) + 1:
         counter += 1
     else:
-        print(Dp.dprec(lines[0], lines[1], letters, matrix))
+        result = Dp.dprec(lines[0], lines[1], letters, matrix, memo)
+        #print(dic[("A", "B")])
+        #result = Dp1.align(lines[0], lines[1], letters, matrix)
+        print(result[0], result[1])
+
        
         
 
@@ -30,4 +37,5 @@ for line in sys.stdin:
         
 
         
+
 

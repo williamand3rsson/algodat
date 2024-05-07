@@ -18,5 +18,4 @@ Px = points[:]
 Py = points[:]
 Px = sorted(points, key=lambda node: node.x)
 Py = sorted(points, key=lambda node: node.y)
-util = Util()
 print(format(Util.closest(Px, Py, len(Px)), ".6f"))
