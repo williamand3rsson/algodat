@@ -1,4 +1,10 @@
 class Dp:
+    
+    # def dp(str1, str2, letters, dic, memo):
+    #     if len(str1) == len(str2):
+    #         return (str1, str2), memo
+    #     else:
+    #         Dp.dprec(str1, str2, letters, dic, memo)
 
     @staticmethod
     def value(i, j, dic, letters):
@@ -33,25 +39,26 @@ class Dp:
     @staticmethod
     def dprec(str1, str2, letters, dic, memo):
         if (str1, str2) in memo: 
-            return memo[(str1, str2)]
-        if len(str1) == 0 and len(str2) == 0:
-            return ("","")
+            return memo[(str1, str2)], memo
+        
+        elif len(str1) == 0 and len(str2) == 0:
+            return ("",""), memo
         elif len(str1) == 0:
-            return ('*' * len(str2), str2)
+            return ('*' * len(str2), str2), memo
         elif len(str2) == 0:
-            return (str1, '*' * len(str1))
+            return (str1, '*' * len(str1)), memo
         else:
             keep = Dp.dprec(str1[1:], str2[1:], letters, dic, memo)
             switchL = Dp.dprec(str1, str2[1:], letters, dic, memo)
             switchR = Dp.dprec(str1[1:], str2, letters, dic, memo)
             result = Dp.newMax(
-                        (str1[0] + keep[0], str2[0] + keep[1]),
-                        ('*' + switchL[0], str2[0] + switchL[1]), 
-                        (str1[0] + switchR[0], '*' + switchR[1]),
+                        (str1[0][0] + keep[0][0], str2[0][0] + keep[0][1]),
+                        ('*' + switchL[0][0], str2[0][0] + switchL[0][1]), 
+                        (str1[0][0] + switchR[0][0], '*' + switchR[0][1]),
                         dic, 
                         letters
                         )
             memo[(str1, str2)] = result 
-            return result
+            return result, memo
 
 
