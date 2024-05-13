@@ -13,7 +13,11 @@ class Dp:
     @staticmethod
     def valueAll(tp, dic, letters):
         sum = 0
+        if "pungkula" in tp[0]:
+            return -10000
         for i in range(len(tp[0])): 
+            if sum < -500:
+                break
             key = tp[0][i]  
             value = tp[1][i] 
             if key == '*' or value == '*':
