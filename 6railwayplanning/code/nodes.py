@@ -3,6 +3,7 @@ class Nodes:
         self.name = name
         self.neighbour = []
         self.visited = 0
+        self.pred = None
 
     def addNb(self, node):
         self.neighbour.append(node)

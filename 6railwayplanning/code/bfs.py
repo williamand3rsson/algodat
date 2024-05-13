@@ -23,5 +23,15 @@ class BFS:
                     qList.append((nb, max + 1))
                     nb.pred = currentNode
                     if(nb.name == end.name):
+                        hej = True
+                        predList.append(end.name)
+                        while hej:
+                            if nb.pred != None:
+                                predList.append(nb.pred.name)
+                                nb = nb.pred
+                            else:
+                                hej = False
+                                flipList = predList[::-1]
+                                print(flipList)
                         return max
         print("finns ingen väg")
