@@ -25,11 +25,10 @@ for line in sys.stdin:
     elif counter == len(letters) + 1:
         counter += 1
     else:
-        result = Dp.dprec(lines[0], lines[1], letters, dic, memo)
-        memo = result[1]
-        print(memo)
-        #result = Dp1.align(lines[0], lines[1], letters, matrix)
-        print(result[0][0], result[0][1])
+        #result = Dp.dprec(lines[0], lines[1], letters, dic, memo)
+        #memo = result[1]
+        result = Dp1.align(lines[0], lines[1], letters, matrix)
+        print(result[0], result[1])
 
        
         
