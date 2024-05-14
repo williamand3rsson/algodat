@@ -39,7 +39,6 @@ preFlow = 0
 while reNodes:
     #print(paths)
     for path in paths:
-        print(path)
         flow = Ff.ff(students, edges, path, preFlow)
         if flow >= students:
             counter += 1
@@ -50,16 +49,15 @@ while reNodes:
         break
     print(reNodes)
     nodeToRemove = reNodes.pop(0)
-    
+    print(paths)
     ## removes all paths with reNodes in them
     flow = preFlow = 0
     front1, front2 = matcher[nodeToRemove + 1]
     #back1, back2 = matcher[-nodeToRemove + 1]
-    for i in range(len(paths)-1): 
-        print(paths)
-        if (paths[i] == front1 and paths[i+1] == front2) or (paths[i] == front2 and paths[i+1] == front1):
-            paths.remove(path)
-            print("hjsa")
+    for path in paths:
+        for i in range(len(path)-1): 
+            if (path[i] == front1 and path[i+1] == front2) or (path[i] == front2 and path[i+1] == front1):
+                paths.remove(path)
 
     for e in edges.values():
         e.flow = 0
