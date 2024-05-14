@@ -1,37 +1,21 @@
 from nodes import Nodes
 from collections import deque
 
-class BFS:        
+class BFS:
 
+    @staticmethod        
     def bfs(start, end, nodeList):
-        predList = []
-        qList = deque([(start, 1)])
-        currentNode = None
+        allPaths = []
+        qList = deque([(start, [start])]) 
         
-        for n in nodeList.values():
-            n.visited = 0
-        start.visited = 1
-
-        while len(qList) != 0:
-            currentNode, max = qList.popleft()
-            #if(len(currentNode.neighbourList) == 0):
-            #    currentNode.findNeighbour(wordLib)
-            for nb in currentNode.neighbour:
-                nb = nodeList[nb.name]
-                if nb.visited != 1:
-                    nb.visited = 1
-                    qList.append((nb, max + 1))
-                    nb.pred = currentNode
-                    if(nb.name == end.name):
-                        hej = True
-                        predList.append(end.name)
-                        while hej:
-                            if nb.pred != None:
-                                predList.append(nb.pred.name)
-                                nb = nb.pred
-                            else:
-                                hej = False
-                                flipList = predList[::-1]
-                                print(flipList)
-                        return max
-        print("finns ingen väg")
+        while qList:
+            currentNode, path = qList.popleft()
+            if currentNode == end:
+                allPaths.append(path) 
+                continue
+            
+            for neighbor in currentNode.neighbour:
+                neighbor = nodeList[neighbor.name]
+                if neighbor not in path:  
+                    qList.append((neighbor, path + [neighbor])) 
+        return allPaths
