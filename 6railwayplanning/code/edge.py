@@ -4,10 +4,9 @@ class Edge:
         self.to = to
         self.c = c
         self.flow = 0
-        cap = 0
-        
-    def updateCap(self):
-        self.cap = self.c - self.flow 
+    
+    def totC(self):
+        return self.c - self.flow
     
 
 

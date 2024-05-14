@@ -2,7 +2,7 @@ class Nodes:
     def __init__(self, name):
         self.name = name
         self.neighbour = []
-        self.visited = 0
+        self.visited = False
         self.pred = None
 
     def addNb(self, node):

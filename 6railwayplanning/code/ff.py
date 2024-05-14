@@ -1,13 +1,21 @@
 class Ff:
-    def ff(students, nodes, edges):
-        for e in edges:
-            e.flow = 0
-        totFlow = 0
-        while totFlow < students:
-            path = bfs(start, end, nodeList)
-            min = 0
-            for node in path:
-                min = 1
-            #snabbväg = bfs(nodes)
-            #totFlow += flowFf(snabbväg, edges)
-        return totFlow
+    def ff(students, edges, path, totFlow):
+        mini = 696969
+        for i in range(len(path)-1):
+            newEdge = edges[(path[i], path[i+1])]
+            mini = min(mini, newEdge.totC())
+            if mini == 0:
+                return totFlow
+            
+        for i in range(len(path)-1):
+            frontEdge = edges[(path[i], path[i+1])]
+            backEdge = edges[(path[i+1], path[i])]
+            frontEdge.flow = mini
+            backEdge.flow = -mini
+            #print(frontEdge.flow, frontEdge.fromz, frontEdge.to, frontEdge.c)
+            #print(backEdge.flow, backEdge.fromz, backEdge.to, backEdge.c)
+            #print("")
+        return totFlow + mini
+
+        
+            
