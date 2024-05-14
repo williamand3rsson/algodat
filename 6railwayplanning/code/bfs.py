@@ -6,7 +6,7 @@ class BFS:
     @staticmethod        
     def bfs(start, end, nodeList):
         allPaths = []
-        qList = deque([(start, [start])]) 
+        qList = deque([(start, [start.name])]) 
         
         while qList:
             currentNode, path = qList.popleft()
@@ -17,5 +17,5 @@ class BFS:
             for neighbor in currentNode.neighbour:
                 neighbor = nodeList[neighbor.name]
                 if neighbor not in path:  
-                    qList.append((neighbor, path + [neighbor])) 
+                    qList.append((neighbor, path + [neighbor.name])) 
         return allPaths
