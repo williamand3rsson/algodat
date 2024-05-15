@@ -31,7 +31,7 @@ for line in sys.stdin:
         nodeList[int(lines[0])].neighbour.append(nodeList[int(lines[1])])
         counter += 1
     else:
-        reNodes.append(int(line[0]))
+        reNodes.append(int(line))
 
 paths = BFS.bfs(nodeList[0], nodeList[nodes - 1], nodeList)
 counter = 0
@@ -39,14 +39,14 @@ preFlow = 0
 result = counter, 0
 delList = []
 while reNodes:
-    print(paths)
+    #print(paths)
     for path in paths:
-        print(path)
+        #print(path)
         flow = Ff.ff(students, edges, path, preFlow)
         if flow >= students:
-            print(flow)
+            #print(flow)
             counter += 1
-            print(counter-1)
+            #print(counter-1)
             result = (counter-1, flow)
             break
         preFlow = flow
@@ -54,9 +54,11 @@ while reNodes:
         print(result)
         break
     nodeToRemove = reNodes.pop(0)
-    print("")
     flow = preFlow = 0
     front1, front2 = matcher[nodeToRemove + 1]
+    #print(reNodes)
+    #print(front1, front2)
+    #print("")
     # print(paths)
     # #print(delList)
     # print(result1)

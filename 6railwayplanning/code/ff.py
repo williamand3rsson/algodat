@@ -10,11 +10,8 @@ class Ff:
         for i in range(len(path)-1):
             frontEdge = edges[(path[i], path[i+1])]
             backEdge = edges[(path[i+1], path[i])]
-            frontEdge.flow = mini
-            backEdge.flow = -mini
-            #print(frontEdge.flow, frontEdge.fromz, frontEdge.to, frontEdge.c)
-            #print(backEdge.flow, backEdge.fromz, backEdge.to, backEdge.c)
-            #print("")
+            frontEdge.flow += mini
+            backEdge.flow -= mini
         return totFlow + mini
 
         
