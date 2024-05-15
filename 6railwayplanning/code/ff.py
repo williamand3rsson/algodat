@@ -18,4 +18,6 @@ class Ff:
         return totFlow + mini
 
         
+
+        
             
