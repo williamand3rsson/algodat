@@ -6,7 +6,6 @@ class Ff:
             mini = min(mini, newEdge.totC())
             if mini == 0:
                 return totFlow
-            
         for i in range(len(path)-1):
             frontEdge = edges[(path[i], path[i+1])]
             backEdge = edges[(path[i+1], path[i])]

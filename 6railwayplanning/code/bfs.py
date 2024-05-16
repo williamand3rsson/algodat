@@ -18,3 +18,5 @@ class BFS:
                 if neighbor.name not in path:  
                     qList.append((neighbor, path + [neighbor.name])) 
         return allPaths
+
+

@@ -5,7 +5,8 @@ from bfs import BFS
 from dfs import DFS
 from edge import Edge
 import time
-start1 = time.time()
+
+#behåll som vanligt funkar
 counter = 0
 students = 0
 nbrEdges = 0
@@ -35,25 +36,30 @@ for line in sys.stdin:
         counter += 1
     else:
         reNodes.append(int(line))
-end2 = time.time()
 
-start = time.time()
-paths = BFS.bfs(nodeList[0], nodeList[nodes - 1], nodeList)
-#path = DFS.algorithm(nodeList[0], nodeList[nodes - 1], nodeList)
-#print(path)
-end = time.time()
-print(end-start, "BFS")
+#kommer nu att få ut en path istället och det är den kortaste
+print(paths)
 counter = 0
 preFlow = 0
 resCount, resFlow = counter, 0
 delList = []
 while reNodes:
-    print(paths)
+    #print(paths)
+    nodeToRemove = reNodes.pop(0)
+    front1, front2 = matcher[nodeToRemove + 1]
+    while flow < studenter:
+        path = DFS.algorithm(nodeList[0], nodeList[nodes - 1], nodeList)
+        
+        flow = Ff.ff(students, edges, path, preFlow)
+    if flow >= students:
+            counter += 1
+            resCount, resFlow = counter-1, flow
+            break
+
     for path in paths:
-        print(path)
+        #print(path)
         flow = Ff.ff(students, edges, path, preFlow)
         if flow >= students:
-            print(flow)
             counter += 1
             resCount, resFlow = counter-1, flow
             break
@@ -69,19 +75,17 @@ while reNodes:
     # #print(delList)
     # print(result1)
     # print(front1, front2)
-    print("")
-    for path in paths:
-        for i in range(len(path)-1): 
-            if ((path[i] == front1 and path[i+1] == front2) or (path[i] == front2 and path[i+1] == front1)) and path not in delList:
-                delList.append(path)
+    # print("")
+    
+    # for path in paths:
+    #     for i in range(len(path)-1): 
+    #         if ((path[i] == front1 and path[i+1] == front2) or (path[i] == front2 and path[i+1] == front1)) and path not in delList:
+    #             delList.append(path)
         
-    result1 = [x for x in paths if x not in delList] 
-    # måste på något sätt få sä att result1 är nya path, samt nollställa result1 
-    # kanske 
-    paths = result1.copy()
-    result1 = []
+    # result1 = [x for x in paths if x not in delList] 
+    
+    # paths = result1.copy()
+    # result1 = []
 
     for e in edges.values():
         e.flow = 0
-end1 = time.time()
-print(end1-start1)
