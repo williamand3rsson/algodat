@@ -1,26 +1,28 @@
-from node import Node
+from nodes import Nodes
 from collections import deque
 
-class BFS:
+class BFS2:
         
     def algorithm(start, end, nodeList):
-        predList = []
-        qList = deque([(start, [start])])  
-        currentNode = None
-        
-        for n in nodeList.values():
-            n.visited = 0
+        queue = deque([(start, [start.name])])
+
+        for node in nodeList:
+            node.visited = 0
+
         start.visited = 1
 
-        while len(qList) != 0:
-            currentNode, path = qList.popleft()
-            for nb in currentNode.neighbourList:
-                nb = nodeList[nb]
-                if nb.visited != 1:
-                    nb.visited = 1
-                    qList.append((nb, path + [nb]))  
-                    nb.pred = currentNode
-                    if nb.name == end.name:
-                        return path + [end] 
-        return None  
+        while queue:
+            currentNode, path = queue.popleft()
+
+            for nb in currentNode.neighbour:
+                neighbour = nodeList[nb.name]
+
+                if neighbour.visited == 0:
+                    neighbour.visited = 1
+                    new_path = path + [neighbour.name]
+                    neighbour.pred = currentNode
+                    if neighbour.name == end.name:
+                        return new_path
+                    queue.append((neighbour, new_path))
+        return None
 

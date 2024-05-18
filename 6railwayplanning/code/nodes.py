@@ -7,3 +7,6 @@ class Nodes:
 
     def addNb(self, node):
         self.neighbour.append(node)
+
+    def removeNb(self, node):
+        self.neighbour.remove(node)

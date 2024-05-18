@@ -2,7 +2,6 @@ import sys
 from ff import Ff
 from nodes import Nodes
 from bfs import BFS
-from dfs import DFS
 from edge import Edge
 import time
 start1 = time.time()
